@@ -58,7 +58,7 @@ public abstract class Computer {
 
     @Override
     public String toString() {
-        return "Computer{" +
+        return "{" +
                 ", computers='" + computers + '\'' +
                 ", computerName='" + computerName + '\'' +
                 ", type='" + type + '\'' +

@@ -65,11 +65,12 @@ public class NexusWave extends Computer {
 
     @Override
     public String toString() {
-        return "NexusWave{} " + super.toString();
+        return "метод  'NexusWave' " + super.toString();
     }
 
     public NexusWave(String brand , String computerName , String computers , String system , String type , String hascam) {
         super(brand , computerName , computers , system , type , Integer.valueOf(hascam));
     }
+
     }
 

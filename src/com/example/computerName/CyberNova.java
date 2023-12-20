@@ -64,6 +64,6 @@ public class CyberNova extends Computer{
 
     @Override
     public String toString() {
-        return "CyberNova{} " + super.toString();
+        return "метод 'CyberNova' " + super.toString();
     }
 }

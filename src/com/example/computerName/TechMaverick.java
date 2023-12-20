@@ -5,7 +5,7 @@ import com.example.Computer;
 public class TechMaverick extends Computer {
     @Override
     public String toString() {
-        return "TechMaverick{} " + super.toString();
+        return "метод  'TechMaverick' " + super.toString();
     }
 
     public TechMaverick(String brand , String computerName , String computers , String system , String type , String hascam) {

@@ -70,6 +70,6 @@ public class StellarByte extends Computer {
 
     @Override
     public String toString() {
-        return "StellarByte{} " + super.toString();
+        return "метод  'StellarByte' " + super.toString();
     }
 }

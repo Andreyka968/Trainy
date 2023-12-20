@@ -5,7 +5,7 @@ public class Alla extends CyberNova {
 
     @Override
     public String toString() {
-        return "Alla{} " + super.toString();
+        return "Alla{}" + super.toString();
     }
 
     public Alla(String brand , String computerName , String computers , String system ,

@@ -65,7 +65,7 @@ public class QuantumPulse extends Computer {
 
     @Override
     public String toString() {
-        return "QuantumPulse{} " + super.toString();
+        return "метод 'QuantumPulse' " + super.toString();
     }
 
     public QuantumPulse(String brand , String computerName , String computers , String system , String type , String hascam) {
