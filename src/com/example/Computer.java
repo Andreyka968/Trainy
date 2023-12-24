@@ -1,18 +1,38 @@
 package com.example;
 
 public abstract class Computer {
+    private int id;
     private String brand;
     private  String computerName;
     private String computers;
     private String system;
     private  String type;
-    private Integer hascam;
+    private int hascam;
+
+    public Computer(int id , String brand , String computerName ,
+                    String computers , String system , String type , int hascam) {
+        this.id = id;
+        this.brand = brand;
+        this.computerName = computerName;
+        this.computers = computers;
+        this.system = system;
+        this.type = type;
+        this.hascam = hascam;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getBrand() {
         return brand;
     }
 
-    public void setBrand() {
+    public void setBrand(String brand) {
         this.brand = brand;
     }
 
@@ -48,33 +68,26 @@ public abstract class Computer {
         this.type = type;
     }
 
-    public Integer getHascam() {
+    public int getHascam() {
         return hascam;
     }
 
-    public void setHascam(Integer hascam) {
+    public void setHascam(int hascam) {
         this.hascam = hascam;
     }
 
     @Override
     public String toString() {
-        return "{" +
-                ", computers='" + computers + '\'' +
+        return "Computer{" +
+                "id=" + id +
+                ", brand='" + brand + '\'' +
                 ", computerName='" + computerName + '\'' +
-                ", type='" + type + '\'' +
+                ", computers='" + computers + '\'' +
                 ", system='" + system + '\'' +
-                "brand='" + brand + '\'' +
+                ", type='" + type + '\'' +
                 ", hascam=" + hascam +
                 '}';
     }
 
-    public Computer(String brand , String computerName , String computers , String system , String type , Integer hascam) {
-        this.computers = computers;
-        this.computerName = computerName;
-        this.type = type;
-        this.system = system;
-        this.brand = brand;
-        this.hascam = hascam;
 
-    }
 }

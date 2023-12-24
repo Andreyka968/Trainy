@@ -8,8 +8,8 @@ public class Alla extends CyberNova {
         return "Alla{}" + super.toString();
     }
 
-    public Alla(String brand , String computerName , String computers , String system ,
-                String type , String hascam) {
-        super(brand , computerName , computers , system , type , hascam);
+    public Alla(int id , String brand , String computerName , String computers , String system ,
+                String type , int hascam) {
+        super(id , brand , computerName , computers , system , type , hascam );
     }
 }

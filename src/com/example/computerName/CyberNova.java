@@ -3,14 +3,31 @@ package com.example.computerName;
 import com.example.Computer;
 
 public class CyberNova extends Computer{
+    private int id = 0;
     private String brand;
     private  String computerName;
     private String computers;
     private String system;
     private  String type;
-    private Integer hascam;
-    public CyberNova(String brand , String computerName , String computers , String system , String type , String hascam) {
-        super(brand , computerName , computers , system , type , Integer.valueOf(hascam));
+    private int hascam = 0;
+
+    public CyberNova(int id , String brand , String computerName , String computers ,
+                     String system , String type , int hascam) {
+        super( id , brand , computerName , computers , system , type , hascam);
+        this.id = id;
+        this.brand = brand;
+        this.computerName = computerName;
+        this.computers = computers;
+        this.system = system;
+        this.type = type;
+        this.hascam = hascam;
+    }
+    public int getid() {
+        return id;
+    }
+
+    public void setid() {
+        this.id = id;
     }
 
     public String getBrand() {
@@ -53,11 +70,11 @@ public class CyberNova extends Computer{
         this.type = type;
     }
 
-    public Integer getHascam() {
+    public int getHascam() {
         return hascam;
     }
 
-    public void setHascam(Integer  hascam) {
+    public void setHascam(int  hascam) {
         this.hascam = hascam;
     }
 

@@ -3,14 +3,30 @@ package com.example.computerName;
 import com.example.Computer;
 
 public class QuantumPulse extends Computer {
+    public QuantumPulse(int id , String brand , String computerName , String computers ,
+                        String system , String type ,
+                        int hascam) {
+        super(id , brand , computerName , computers , system , type , hascam);
+    }
+
+    @Override
+    public int getId() {
+        return super.getId();
+    }
+
+    @Override
+    public void setId(int id) {
+        super.setId(id);
+    }
+
     @Override
     public String getBrand() {
         return super.getBrand();
     }
 
     @Override
-    public void setBrand() {
-        super.setBrand();
+    public void setBrand(String brand) {
+        super.setBrand(brand);
     }
 
     @Override
@@ -54,21 +70,17 @@ public class QuantumPulse extends Computer {
     }
 
     @Override
-    public Integer getHascam() {
+    public int getHascam() {
         return super.getHascam();
     }
 
     @Override
-    public void setHascam(Integer hascam) {
+    public void setHascam(int hascam) {
         super.setHascam(hascam);
     }
 
     @Override
     public String toString() {
         return "метод 'QuantumPulse' " + super.toString();
-    }
-
-    public QuantumPulse(String brand , String computerName , String computers , String system , String type , String hascam) {
-        super(brand , computerName , computers , system , type , Integer.valueOf(hascam));
     }
 }
