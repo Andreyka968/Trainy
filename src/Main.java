@@ -2,6 +2,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -120,8 +123,25 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
         List<Computer> myList = new LinkedList<>();
+        long time1 = System.nanoTime();
+        long time2 = 0;
+
+        time2 = System.nanoTime();
+        System.out.println("Process lasted " + (time2-time1)/1000000 + "mc");
+        time1 = time2;
+
         String[] data = readFileUsingFileReader(FILENAME);
+
+        time2 = System.nanoTime();
+        System.out.println("Process readFileUsingFileReader lasted " + (time2-time1)/1000000 + "mc");
+        time1 = time2;
+
         myList = createdObject(data);
+
+        time2 = System.nanoTime();
+        System.out.println("Process createdObject(data) lasted " + (time2-time1)/1000000 + "mc");
+        time1 = time2;
+
         //Сортировка с условием SortSkip и SortOut.
         Stream<Computer> stream = myList.stream();
         stream
@@ -130,7 +150,7 @@ public class Main {
                 .limit(21)
                 .forEach(System.out::println);
 
-//      Фильтрация в количестве FilterOot.
+//      Фильтрация в количестве FilteRoot.
         Stream<Computer> stream1 = myList.stream();
         stream1
                 .filter(cam -> cam.getHascam() >= 1)
@@ -143,5 +163,33 @@ public class Main {
                 Computer::getComputerName));
         compMap.forEach((key , value) -> System.out.println
                 ("ID: " + key + ", Computer Name: " + value));
+
+        time2 = System.nanoTime();
+        System.out.println("Three acts with the streams lasted " + (time2-time1)/1000000 + "mc");
+        time1 = time2;
+
+        // Создаем два объекта LocalDateTime
+        //  LocalDateTime dateBefore = LocalDateTime.of(2023, 12, 1, 12, 0); // Дата до 1 декабря 2023 года
+        //LocalDateTime dateAfter = LocalDateTime.of(2024, 1, 2, 15, 30); // Дата после 1 января 2024 года
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+
+        try {
+            // Заданные даты
+            Date date1 = dateFormat.parse("12.12.2023");
+            Date date2 = dateFormat.parse("4.1.2024");
+
+            // Разница в миллисекундах
+            long differenceInMillis = Math.abs(date2.getTime() - date1.getTime());
+            int differenceInDays = (int)(differenceInMillis/1000/3600/24);
+
+            // Вывод результата
+            System.out.println("date1 " + date1 );
+            System.out.println("date2 " + date2 );
+            System.out.println("Разница в миллисекундах: " + differenceInMillis + " Это " + differenceInDays +" дня");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
 }
