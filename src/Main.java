@@ -122,23 +122,30 @@ public class Main {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
+        ArrayList<Long> executionTimes = new ArrayList<>();long t = 0;
         List<Computer> myList = new LinkedList<>();
         long time1 = System.nanoTime();
         long time2 = 0;
 
         time2 = System.nanoTime();
-        System.out.println("Process lasted " + (time2-time1)/1000000 + "mc");
+        t = (time2-time1)/1000000;
+
+        System.out.println("Process lasted " + t + "mc");
         time1 = time2;
 
         String[] data = readFileUsingFileReader(FILENAME);
 
         time2 = System.nanoTime();
-        System.out.println("Process readFileUsingFileReader lasted " + (time2-time1)/1000000 + "mc");
+        t =  (time2-time1)/1000000;
+        executionTimes.add(t);
+        System.out.println("Process readFileUsingFileReader lasted " + t + "mc");
         time1 = time2;
 
         myList = createdObject(data);
 
         time2 = System.nanoTime();
+        t =  (time2-time1)/1000000;
+        executionTimes.add(t);
         System.out.println("Process createdObject(data) lasted " + (time2-time1)/1000000 + "mc");
         time1 = time2;
 
@@ -165,18 +172,26 @@ public class Main {
                 ("ID: " + key + ", Computer Name: " + value));
 
         time2 = System.nanoTime();
+        t =  (time2-time1)/1000000;
+        executionTimes.add(t);
         System.out.println("Three acts with the streams lasted " + (time2-time1)/1000000 + "mc");
         time1 = time2;
 
+        Collections.sort(executionTimes);
+
+        // Вывод временных данных в консоль
+        System.out.println("Времена выполнения в миллисекундах (возрастающий порядок):");
+        for (long time : executionTimes) {
+            System.out.println(time);
+        }
+
         // Создаем два объекта LocalDateTime
-        //  LocalDateTime dateBefore = LocalDateTime.of(2023, 12, 1, 12, 0); // Дата до 1 декабря 2023 года
-        //LocalDateTime dateAfter = LocalDateTime.of(2024, 1, 2, 15, 30); // Дата после 1 января 2024 года
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 
         try {
             // Заданные даты
-            Date date1 = dateFormat.parse("12.12.2023");
+            Date date1 = dateFormat.parse("12.11.2023");
             Date date2 = dateFormat.parse("4.1.2024");
 
             // Разница в миллисекундах
